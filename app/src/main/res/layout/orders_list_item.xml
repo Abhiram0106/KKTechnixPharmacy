@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp">
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_text"
+        android:padding="6dp"
+        android:textSize="@dimen/small_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:backgroundTint="@color/yellow_payment_wait"
+        tools:text="Waiting for Payment" />
+
+    <TextView
+        android:id="@+id/tv_orderDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/small_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="02-12-2022" />
+
+    <TextView
+        android:id="@+id/tv_transactionIDHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/transaction_id"
+        android:textSize="@dimen/small_text_size"
+        app:layout_constraintEnd_toStartOf="@id/tv_addressHolder"
+        app:layout_constraintStart_toStartOf="@id/tv_status"
+        app:layout_constraintTop_toBottomOf="@id/tv_status" />
+
+    <TextView
+        android:id="@+id/tv_transactionID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:textSize="@dimen/small_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/view_bottomLine"
+        app:layout_constraintEnd_toEndOf="@id/tv_transactionIDHolder"
+        app:layout_constraintStart_toStartOf="@id/tv_transactionIDHolder"
+        app:layout_constraintTop_toBottomOf="@id/tv_transactionIDHolder"
+        tools:text="123ABC" />
+
+    <TextView
+        android:id="@+id/tv_addressHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/address"
+        android:textSize="@dimen/small_text_size"
+        app:layout_constraintBottom_toBottomOf="@id/tv_transactionIDHolder"
+        app:layout_constraintEnd_toStartOf="@id/tv_totalPaymentHolder"
+        app:layout_constraintStart_toEndOf="@id/tv_transactionIDHolder"
+        app:layout_constraintTop_toTopOf="@id/tv_transactionIDHolder" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:textSize="@dimen/small_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/view_bottomLine"
+        app:layout_constraintEnd_toEndOf="@id/tv_addressHolder"
+        app:layout_constraintStart_toStartOf="@id/tv_addressHolder"
+        app:layout_constraintTop_toBottomOf="@id/tv_addressHolder"
+        tools:text="Home" />
+
+    <TextView
+        android:id="@+id/tv_totalPaymentHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_payment"
+        android:textSize="@dimen/small_text_size"
+        app:layout_constraintBottom_toBottomOf="@id/tv_addressHolder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_addressHolder"
+        app:layout_constraintTop_toTopOf="@id/tv_addressHolder" />
+
+    <TextView
+        android:id="@+id/tv_totalPayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:textSize="@dimen/small_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/view_bottomLine"
+        app:layout_constraintEnd_toEndOf="@id/tv_totalPaymentHolder"
+        app:layout_constraintStart_toStartOf="@id/tv_totalPaymentHolder"
+        app:layout_constraintTop_toBottomOf="@id/tv_totalPaymentHolder"
+        tools:text="123" />
+
+    <View
+        android:id="@+id/view_bottomLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

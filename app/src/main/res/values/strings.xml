@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">KKTechnixPharmacy</string>
+    <string name="product_description">Product Description</string>
+    <string name="product_price">₹%1$d</string>
+    <string name="all">All</string>
+    <string name="ongoing">Ongoing</string>
+    <string name="delivered">Delivered</string>
+    <string name="waiting_for_payment">Waiting for Payment</string>
+    <string name="failed">Failed</string>
+    <string name="transaction_id">Transaction ID</string>
+    <string name="address">Address</string>
+    <string name="total_payment">Total Payment (₹)</string>
 </resources>

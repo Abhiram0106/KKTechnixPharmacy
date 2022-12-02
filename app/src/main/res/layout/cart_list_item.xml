@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_productImage"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_margin="12dp"
+                android:contentDescription="@string/product_description"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_baseline_masks_24" />
+
+            <TextView
+                android:id="@+id/tv_productName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:textSize="@dimen/large_text_size"
+                app:layout_constraintStart_toEndOf="@id/iv_productImage"
+                app:layout_constraintTop_toTopOf="@id/iv_productImage"
+                tools:text="Crocin" />
+
+            <TextView
+                android:id="@+id/tv_productIngredientName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_text_size"
+                app:layout_constraintStart_toStartOf="@id/tv_productName"
+                app:layout_constraintTop_toBottomOf="@id/tv_productName"
+                tools:text="Paracetamol" />
+
+            <ImageButton
+                android:id="@+id/ib_decrementQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
+                android:contentDescription="@string/product_description"
+                android:src="@drawable/ic_baseline_remove_circle_24"
+                app:layout_constraintBottom_toBottomOf="@id/iv_productImage"
+                app:layout_constraintEnd_toStartOf="@id/tv_productQuantityCounter"
+                app:layout_constraintStart_toStartOf="@+id/tv_productName" />
+
+            <TextView
+                android:id="@+id/tv_productQuantityCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:textSize="@dimen/small_text_size"
+                app:layout_constraintBottom_toBottomOf="@id/ib_decrementQuantity"
+                app:layout_constraintEnd_toStartOf="@id/ib_incrementQuantity"
+                app:layout_constraintStart_toEndOf="@id/ib_decrementQuantity"
+                app:layout_constraintTop_toTopOf="@id/ib_decrementQuantity"
+                tools:text="01" />
+
+            <ImageButton
+                android:id="@+id/ib_incrementQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
+                android:contentDescription="@string/product_description"
+                android:src="@drawable/ic_baseline_add_circle_24"
+                app:layout_constraintBottom_toBottomOf="@id/ib_decrementQuantity"
+                app:layout_constraintStart_toEndOf="@id/tv_productQuantityCounter"
+                app:layout_constraintTop_toTopOf="@id/ib_decrementQuantity" />
+
+            <TextView
+                android:id="@+id/tv_productPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/large_text_size"
+                app:layout_constraintBottom_toBottomOf="@id/ib_incrementQuantity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ib_incrementQuantity"
+                app:layout_constraintTop_toTopOf="@id/ib_incrementQuantity"
+                tools:text="₹123" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
