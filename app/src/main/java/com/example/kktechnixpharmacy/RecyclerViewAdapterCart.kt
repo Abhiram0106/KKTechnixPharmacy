@@ -7,8 +7,8 @@ import com.example.kktechnixpharmacy.databinding.CartListItemBinding
 
 class RecyclerViewAdapterCart(
     var productsList: List<ProductData>,
-    private var onDecrementClicked: ((counter:Int, position:Int) -> Unit),
-    private var onIncrementClicked: ((counter:Int, position:Int) -> Unit)
+    private var onDecrementClicked: ((quantity:Int, price: Int, position:Int) -> Unit),
+    private var onIncrementClicked: ((quantity: Int, price: Int, position:Int) -> Unit)
     ) : RecyclerView.Adapter<RecyclerViewAdapterCart.ViewHolderCart>() {
 
     inner class ViewHolderCart(private val binding: CartListItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -22,11 +22,11 @@ class RecyclerViewAdapterCart(
             ivProductImage.setImageResource(R.drawable.ic_baseline_masks_24)
 
             ibDecrementQuantity.setOnClickListener {
-                onDecrementClicked(tvProductQuantityCounter.text.toString().toInt(),adapterPosition)
+                onDecrementClicked(product.counter,product.price,adapterPosition)
                 notifyItemChanged(adapterPosition)
             }
             ibIncrementQuantity.setOnClickListener{
-                onIncrementClicked(tvProductQuantityCounter.text.toString().toInt(),adapterPosition)
+                onIncrementClicked(product.counter,product.price,adapterPosition)
                 notifyItemChanged(adapterPosition)
             }
         }

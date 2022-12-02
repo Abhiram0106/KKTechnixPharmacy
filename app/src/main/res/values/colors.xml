@@ -11,4 +11,5 @@
     <color name="red_payment_fail">#80BB1E10</color>
     <color name="green_order_delivered">#8049B675</color>
     <color name="grey_order_ongoing">#80646C64</color>
+    <color name="kktechnix">#FF010026</color>
 </resources>

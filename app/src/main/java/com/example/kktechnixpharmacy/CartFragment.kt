@@ -40,13 +40,17 @@ class CartFragment : Fragment() {
 
         binding.rvCartList.layoutManager = LinearLayoutManager(requireContext())
 
+        val basePrice = 100
+
         val productsRecyclerAdapter = RecyclerViewAdapterCart(
             productsList = products,
-            onDecrementClicked = { counter, position ->
-                products[position].counter = counter-1
+            onDecrementClicked = { quantity, price, position ->
+                products[position].counter = quantity-1
+                products[position].price = products[position].price - basePrice
             },
-            onIncrementClicked = { counter, position ->
-                products[position].counter = counter+1
+            onIncrementClicked = { quantity, price, position ->
+                products[position].counter = quantity+1
+                products[position].price = products[position].price + basePrice
             }
             //    TODO swipe to delete
         )
