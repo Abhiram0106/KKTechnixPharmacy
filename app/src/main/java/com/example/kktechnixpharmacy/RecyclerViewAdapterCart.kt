@@ -16,7 +16,7 @@ class RecyclerViewAdapterCart(
         fun bind(product: ProductData) = binding.apply {
             tvProductName.text = product.name
             tvProductIngredientName.text = product.ingredient
-            tvProductPrice.text = itemView.context.getString(R.string.product_price,product.price)
+            tvProductPrice.text = itemView.context.getString(R.string.price,product.price)
             tvProductQuantityCounter.text = product.counter.toString()
 
             ivProductImage.setImageResource(R.drawable.ic_baseline_masks_24)

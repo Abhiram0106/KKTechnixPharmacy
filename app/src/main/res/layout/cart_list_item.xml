@@ -48,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/small_text_size"
+                android:alpha="0.5"
                 app:layout_constraintStart_toStartOf="@id/tv_productName"
                 app:layout_constraintTop_toBottomOf="@id/tv_productName"
                 tools:text="Paracetamol" />

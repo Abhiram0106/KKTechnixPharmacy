@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">KKTechnixPharmacy</string>
     <string name="product_description">Product Description</string>
-    <string name="product_price">₹%1$d</string>
+    <string name="price">₹%1$d</string>
     <string name="all">All</string>
     <string name="ongoing">Ongoing</string>
     <string name="delivered">Delivered</string>
@@ -9,5 +9,22 @@
     <string name="failed">Failed</string>
     <string name="transaction_id">Transaction ID</string>
     <string name="address">Address</string>
+    <string name="price_details">Price Details</string>
+    <string name="mrp">MRP</string>
+    <string name="discount">Discount</string>
+    <string name="Shipping">Shipping</string>
+    <string name="total">Total</string>
+    <string name="proceed">Proceed</string>
+    <string name="delivery_method_free">FREE Delivery\nStandard shipping, 5–7 business days</string>
+    <string name="delivery_method_paid">₹%1$d\nStandard shipping, 1–3 business days</string>
+    <string name="delivery_method">Delivery Method</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="payment_method_upi">UPI (Phonepe, Gpay, Paytm &amp; more)</string>
+    <string name="payment_method_card">Credit / Debit / ATM Card</string>
+    <string name="payment_method_net_banking">Net Banking</string>
+    <string name="payment_method_cod">Cash on Delivery</string>
+    <string name="add_or_change_address">Add or Change Address</string>
+    <string name="shipping_address">Shipping Address</string>
+    <string name="payment_page">Payment Page Scroll View</string>
     <string name="total_payment">Total Payment (₹)</string>
 </resources>

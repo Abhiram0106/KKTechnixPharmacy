@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:contentDescription="@string/payment_page">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_shippingAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardMaxElevation="12dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_deliveryMethodHolder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_shippingAddressHolder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:text="@string/shipping_address"
+                    android:textSize="@dimen/large_text_size"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/tv_shippingAddress"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_shippingAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.5"
+                    android:textSize="@dimen/small_text_size"
+                    app:layout_constraintBottom_toTopOf="@id/bt_addOrChangeAddress"
+                    app:layout_constraintStart_toStartOf="@id/tv_shippingAddressHolder"
+                    app:layout_constraintTop_toBottomOf="@id/tv_shippingAddressHolder"
+                    tools:text="Abhiram\nHouse 123, 456 street, abc, xyz.\n+91 1234567890" />
+
+                <Button
+                    android:id="@+id/bt_addOrChangeAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:text="@string/add_or_change_address"
+                    android:textSize="@dimen/large_text_size"
+                    app:cornerRadius="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_shippingAddress" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tv_deliveryMethodHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="@string/delivery_method"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_shippingAddress" />
+
+
+        <RadioGroup
+            android:id="@+id/rg_deliveryMethods"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="6dp"
+            app:layout_constraintBottom_toTopOf="@id/view_bottomLineUnderDeliveryMethods"
+            app:layout_constraintStart_toStartOf="@id/tv_deliveryMethodHolder"
+            app:layout_constraintTop_toBottomOf="@id/tv_deliveryMethodHolder">
+
+            <RadioButton
+                android:id="@+id/rb_freeDeliveryMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delivery_method_free"
+                android:textSize="@dimen/small_text_size" />
+
+            <RadioButton
+                android:id="@+id/rb_paidDeliveryMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_text_size"
+                tools:text="@string/delivery_method_paid" />
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/view_bottomLineUnderDeliveryMethods"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="3dp"
+            android:background="@color/kktechnix_alpha75"
+            app:layout_constraintBottom_toTopOf="@id/tv_priceDetailsHolder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rg_deliveryMethods" />
+
+        <TextView
+            android:id="@+id/tv_priceDetailsHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="@string/price_details"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_bottomLineUnderDeliveryMethods" />
+
+        <TextView
+            android:id="@+id/tv_MRP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/mrp"
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/tv_priceDetailsHolder"
+            app:layout_constraintTop_toBottomOf="@id/tv_priceDetailsHolder" />
+
+        <TextView
+            android:id="@+id/tv_MRPValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_MRP"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_MRP"
+            tools:text="@string/price" />
+
+        <TextView
+            android:id="@+id/tv_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/discount"
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/tv_MRP"
+            app:layout_constraintTop_toBottomOf="@id/tv_MRP" />
+
+        <TextView
+            android:id="@+id/tv_discountValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_discount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_discount"
+            tools:text="@string/price" />
+
+        <TextView
+            android:id="@+id/tv_shipping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/Shipping"
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/tv_discount"
+            app:layout_constraintTop_toBottomOf="@id/tv_discount" />
+
+        <TextView
+            android:id="@+id/tv_shippingValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_shipping"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_shipping"
+            tools:text="@string/price" />
+
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="12dp"
+            android:text="@string/total"
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/view_bottomLineUnderPriceDetails"
+            app:layout_constraintStart_toStartOf="@id/tv_shipping"
+            app:layout_constraintTop_toBottomOf="@id/tv_shipping" />
+
+        <TextView
+            android:id="@+id/tv_totalValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_total"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_total"
+            tools:text="@string/price" />
+
+        <View
+            android:id="@+id/view_bottomLineUnderPriceDetails"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="3dp"
+            android:background="@color/kktechnix_alpha75"
+            app:layout_constraintBottom_toTopOf="@id/tv_paymentMethodHolder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_total" />
+
+        <TextView
+            android:id="@+id/tv_paymentMethodHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="@string/payment_method"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_bottomLineUnderPriceDetails" />
+
+
+        <RadioGroup
+            android:id="@+id/rg_paymentMethods"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="6dp"
+            app:layout_constraintStart_toStartOf="@id/tv_paymentMethodHolder"
+            app:layout_constraintTop_toBottomOf="@id/tv_paymentMethodHolder">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/payment_method_upi"
+                android:textSize="@dimen/small_text_size" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/payment_method_card"
+                android:textSize="@dimen/small_text_size" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/payment_method_net_banking"
+                android:textSize="@dimen/small_text_size" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/payment_method_cod"
+                android:textSize="@dimen/small_text_size" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/bt_proceed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:text="@string/proceed"
+            android:textSize="@dimen/large_text_size"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rg_paymentMethods" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kktechnixpharmacy.databinding.FragmentOrdersBinding
 import com.google.android.material.tabs.TabLayout
@@ -71,5 +72,10 @@ class OrdersFragment : Fragment() {
             }
 
         })
+
+        binding.fbGoToPaymentPage.setOnClickListener {
+            val action = OrdersFragmentDirections.actionOrdersFragmentToPaymentFragment()
+            view.findNavController().navigate(action)
+        }
     }
 }
