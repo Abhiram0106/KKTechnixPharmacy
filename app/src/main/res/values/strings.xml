@@ -2,6 +2,7 @@
     <string name="app_name">KKTechnixPharmacy</string>
     <string name="product_description">Product Description</string>
     <string name="price">₹%1$d</string>
+    <string name="time_and_distance">%1$d min | %2$d km</string>
     <string name="all">All</string>
     <string name="ongoing">Ongoing</string>
     <string name="delivered">Delivered</string>
@@ -27,4 +28,5 @@
     <string name="shipping_address">Shipping Address</string>
     <string name="payment_page">Payment Page Scroll View</string>
     <string name="total_payment">Total Payment (₹)</string>
+    <string name="search_hint">Name of medicine or store</string>
 </resources>

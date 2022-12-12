@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.kktechnixpharmacy.databinding.FragmentPaymentBinding
 
 class PaymentFragment : Fragment() {
@@ -66,6 +67,11 @@ class PaymentFragment : Fragment() {
                 Toast.makeText(view.context, "Select Payment Method", Toast.LENGTH_SHORT).show()
             }
 
+        }
+
+        binding.fabGoToSearchPage.setOnClickListener {
+            val directions = PaymentFragmentDirections.actionPaymentFragmentToSearchProductFragment()
+            view.findNavController().navigate(directions)
         }
     }
 

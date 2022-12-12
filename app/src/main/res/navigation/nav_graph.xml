@@ -27,5 +27,14 @@
         android:id="@+id/paymentFragment"
         android:name="com.example.kktechnixpharmacy.PaymentFragment"
         android:label="PaymentFragment"
-        tools:layout="@layout/fragment_payment"/>
+        tools:layout="@layout/fragment_payment">
+        <action
+            android:id="@+id/action_paymentFragment_to_searchProductFragment"
+            app:destination="@id/searchProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchProductFragment"
+        android:name="com.example.kktechnixpharmacy.SearchProductFragment"
+        android:label="SearchProductFragment"
+        tools:layout="@layout/fragment_search_product"/>
 </navigation>
