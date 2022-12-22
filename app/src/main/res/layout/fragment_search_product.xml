@@ -10,24 +10,177 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:background="@drawable/rounded_search_view"
         android:elevation="8dp"
+        android:voiceSearchMode="showVoiceSearchButton"
         app:iconifiedByDefault="false"
-        app:layout_constraintBottom_toTopOf="@id/rv_searchProductList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:voiceIcon="@drawable/ic_baseline_mic_24" />
+
+    <TextView
+        android:id="@+id/tv_categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/categories"
+        android:textSize="@dimen/large_text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sv_recyclerViewSearch" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_categoryAntibiotic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:checkable="true"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:checkedIcon="@null"
+        app:contentPadding="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/cv_categoryAyurveda"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_categories"
+        app:strokeColor="@drawable/selector">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_Antibiotic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pill_svgrepo_com"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/category_antibiotic"
+                app:layout_constraintEnd_toEndOf="@id/iv_Antibiotic"
+                app:layout_constraintStart_toStartOf="@id/iv_Antibiotic"
+                app:layout_constraintTop_toBottomOf="@id/iv_Antibiotic" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_categoryAyurveda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:checkable="true"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:checkedIcon="@null"
+        app:contentPadding="24dp"
+        app:layout_constraintBottom_toBottomOf="@id/cv_categoryAntibiotic"
+        app:layout_constraintEnd_toStartOf="@+id/cv_categoryHygiene"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cv_categoryAntibiotic"
+        app:layout_constraintTop_toTopOf="@id/cv_categoryAntibiotic"
+        app:strokeColor="@drawable/selector">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_ayurvedha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ayurvedic_bowl_svgrepo_com"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category_ayurveda"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="@id/iv_ayurvedha"
+                app:layout_constraintStart_toStartOf="@id/iv_ayurvedha"
+                app:layout_constraintTop_toBottomOf="@id/iv_ayurvedha" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_categoryHygiene"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:checkable="true"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:checkedIcon="@null"
+        app:contentPadding="24dp"
+        app:layout_constraintBottom_toBottomOf="@id/cv_categoryAntibiotic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cv_categoryAyurveda"
+        app:layout_constraintTop_toTopOf="@id/cv_categoryAntibiotic"
+        app:strokeColor="@drawable/selector">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_hygiene"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sanitizer_alt_svgrepo_com"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category_hygiene"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="@id/iv_hygiene"
+                app:layout_constraintStart_toStartOf="@id/iv_hygiene"
+                app:layout_constraintTop_toBottomOf="@id/iv_hygiene" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_searchProductList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sv_recyclerViewSearch"
+        app:layout_constraintTop_toBottomOf="@id/cv_categoryAntibiotic"
         tools:listitem="@layout/search_product_list_item">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_goToMockHomePage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:contentDescription="@string/proceed"
+        android:src="@drawable/ic_baseline_arrow_forward_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

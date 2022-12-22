@@ -22,10 +22,16 @@ class RecyclerViewAdapterSearchProduct (
 
         fun bind(product: SearchPageProductData) = binding.apply {
             tvProductNameInSearchPage.text = product.productName
+            tvProductRatingInSearchPage.text = product.rating.toString()
+            when{
+                product.rating < 1.5 -> cvRating.setBackgroundColor(itemView.resources.getColor(R.color.rating_red,null))
+                product.rating < 3.0 -> cvRating.setBackgroundColor(itemView.resources.getColor(R.color.rating_yellow,null))
+                product.rating >= 3.0 -> cvRating.setBackgroundColor(itemView.resources.getColor(R.color.rating_green,null))
+                else -> cvRating.setBackgroundColor(itemView.resources.getColor(R.color.rating_red,null))
+            }
             tvProductQuantityInSearchPage.text = product.productQuantity
             tvProductIngredientInSearchPage.text = product.ingredient
-            tvProductPriceInSearchPage.text =
-                itemView.context.getString(R.string.price, product.price)
+            tvProductPriceInSearchPage.text = itemView.context.getString(R.string.price, product.price)
             tvDeliveryTimeInSearchPage.text = itemView.context.getString(
                 R.string.time_and_distance,
                 product.deliveryTime,
@@ -33,7 +39,7 @@ class RecyclerViewAdapterSearchProduct (
             )
             tvStoreNameInSearchPage.text = product.storeName
 
-            ivProductImageInSearchPage.setImageResource(R.drawable.ic_baseline_medication_150)
+            ivProductImageInSearchPage.setImageResource(R.drawable.picture_tablet)
 
             root.setOnClickListener {
                 onProductClicked(adapterPosition)
@@ -63,6 +69,7 @@ class RecyclerViewAdapterSearchProduct (
         override fun performFiltering(constraint: CharSequence?): FilterResults {
             val filteredList: ArrayList<SearchPageProductData> = ArrayList()
             if (constraint.isNullOrEmpty()) {
+//                TODO if search is empty, display recent search items
                 initialList.let { filteredList.addAll(it) }
             } else {
                 val query = constraint.toString()

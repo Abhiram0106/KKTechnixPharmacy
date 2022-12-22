@@ -36,5 +36,28 @@
         android:id="@+id/searchProductFragment"
         android:name="com.example.kktechnixpharmacy.SearchProductFragment"
         android:label="SearchProductFragment"
-        tools:layout="@layout/fragment_search_product"/>
+        tools:layout="@layout/fragment_search_product">
+        <action
+            android:id="@+id/action_searchProductFragment_to_mockHomeFragment"
+            app:destination="@id/mockHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mockHomeFragment"
+        android:name="com.example.kktechnixpharmacy.MockHomeFragment"
+        android:label="MockHomeFragment"
+        tools:layout="@layout/fragment_mock_home">
+        <action
+            android:id="@+id/action_mockHomeFragment_to_locationSelectorFragment"
+            app:destination="@id/locationSelectorFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"/>
+    </fragment>
+    <fragment
+        android:id="@+id/locationSelectorFragment"
+        android:name="com.example.kktechnixpharmacy.LocationSelectorFragment"
+        android:label="LocationSelectorFragment"
+        tools:layout="@layout/fragment_location_selector">
+    </fragment>
 </navigation>

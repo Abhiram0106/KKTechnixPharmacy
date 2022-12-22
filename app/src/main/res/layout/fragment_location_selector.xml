@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+        android:id="@+id/iv_downArrow"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        android:text="@string/select_location"
+        android:textSize="@dimen/large_text_size"
+        android:id="@+id/tv_selectALoc"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:clickable="true"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/iv_downArrow"
+        app:layout_constraintTop_toTopOf="@id/iv_downArrow"
+        app:layout_constraintBottom_toBottomOf="@id/iv_downArrow"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cl_useCurrentLoc"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/iv_downArrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:clickable="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/iv_locImage"
+            android:padding="8dp"
+            app:layout_constraintEnd_toStartOf="@id/tv_useCurrentLoc"
+            android:src="@drawable/ic_baseline_my_location_24"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_useCurrentLoc"
+            android:text="@string/use_current_location"
+            android:textSize="@dimen/large_text_size"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            app:layout_constraintStart_toEndOf="@id/iv_locImage"
+            app:layout_constraintTop_toTopOf="@id/iv_locImage"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_currentAddress"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_useCurrentLoc"
+            app:layout_constraintStart_toStartOf="@id/tv_useCurrentLoc"
+            tools:text="Address goes here"
+            android:alpha="0.75"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/view_bottomLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/cl_useCurrentLoc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="8dp"
+        android:alpha="0.5"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/view_bottomLine"
+        android:src="@drawable/ic_baseline_pin_drop_24"
+        android:id="@+id/iv_pinnedLoc"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pinned_locations"
+        android:textSize="@dimen/large_text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/iv_pinnedLoc"
+        app:layout_constraintTop_toTopOf="@id/iv_pinnedLoc"
+        app:layout_constraintBottom_toBottomOf="@id/iv_pinnedLoc"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/iv_pinnedLoc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/rv_pinnedLoc"
+        tools:listitem="@layout/pinned_loc_list_item"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

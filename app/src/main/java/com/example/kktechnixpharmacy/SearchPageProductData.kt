@@ -7,6 +7,7 @@ data class SearchPageProductData(
     val price: Int,
     val deliveryTime: Int,
     val storeDistance: Int,
-    val storeName: String
+    val storeName: String,
+    val rating: Double
 ) {
 }

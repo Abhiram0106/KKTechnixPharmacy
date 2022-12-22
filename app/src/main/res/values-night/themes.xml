@@ -30,5 +30,23 @@
         <item name="buttonTint">@color/white</item>
         <item name="android:textAppearanceButton">@color/white</item>
 
+        <item name="searchViewStyle">@style/MySearchViewStyle</item>
+
+
     </style>
+
+    <style name="MySearchViewStyle" parent="Widget.AppCompat.SearchView.ActionBar">
+        <item name="layout">@layout/abc_search_view</item>
+        <item name="android:backgroundTint">@color/kktechnix_alpha75</item>
+        <item name="queryBackground">@color/kktechnix_alpha75</item>
+        <item name="submitBackground">@color/kktechnix_alpha75</item>
+        <item name="closeIcon">@drawable/ic_baseline_close_24_dark</item>
+        <item name="searchIcon">@drawable/ic_baseline_search_24_dark</item>
+        <item name="searchHintIcon">@drawable/ic_baseline_search_24_dark</item>
+        <item name="goIcon">@drawable/ic_baseline_arrow_forward_ios_24_dark</item>
+        <item name="voiceIcon">@drawable/ic_baseline_mic_24_dark</item>
+        <item name="commitIcon">@drawable/abc_ic_commit_search_api_mtrl_alpha</item>
+        <item name="suggestionRowLayout">@layout/abc_search_dropdown_item_icons_2line</item>
+    </style>
+
 </resources>
