@@ -4,17 +4,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kktechnixpharmacy.databinding.FragmentSearchProductBinding
-import com.google.android.material.card.MaterialCardView
 import com.google.android.material.snackbar.Snackbar
 
 class SearchProductFragment : Fragment() {
@@ -58,6 +54,12 @@ class SearchProductFragment : Fragment() {
             add(SearchRecyclerViewItem.Store(R.drawable.ic_baseline_home_24, "store5","store5desc"))
         }
 
+        val titleList = mutableListOf<SearchRecyclerViewItem.Title>()
+        titleList.apply {
+            add(SearchRecyclerViewItem.Title(1, binding.rvSearchProductList.context.getString(R.string.past_searches)))
+            add(SearchRecyclerViewItem.Title(2, binding.rvSearchProductList.context.getString(R.string.search_results)))
+        }
+
         val recentList = mutableListOf<SearchRecyclerViewItem>()
         recentList.apply {
             add(productList[2])
@@ -72,21 +74,29 @@ class SearchProductFragment : Fragment() {
 
         val searchList = mutableListOf<SearchRecyclerViewItem>()
         searchList.apply {
-//            TODO reimplement search
+            add(titleList[0])
+            addAll(recentList)
         }
 
 
         val recyclerList = mutableListOf<SearchRecyclerViewItem>()
         recyclerList.apply {
-            add(SearchRecyclerViewItem.Title(1, binding.rvSearchProductList.context.getString(R.string.past_searches)))
+            add(titleList[0])
             addAll(recentList)
-            add(SearchRecyclerViewItem.Title(2, binding.rvSearchProductList.context.getString(R.string.search_results)))
+            add(titleList[1])
             addAll(fullList)
         }
 
 
+        searchProductListAdapter.productItems = productList
+        searchProductListAdapter.storeItems = storeList
+        searchProductListAdapter.titleItems = titleList
 
-        searchProductListAdapter.items = recyclerList
+//        searchProductListAdapter.items = recyclerList
+//        searchProductListAdapter.items = searchList
+        searchProductListAdapter.recentSearchItems = searchList
+        searchProductListAdapter.recentItemsUntouched = searchList
+
         searchProductListAdapter.itemClickListener = { view, item, position ->
 
             val message = when(item) {
@@ -96,6 +106,13 @@ class SearchProductFragment : Fragment() {
             }
 
             Snackbar.make(view, "At $position, $message", Snackbar.LENGTH_SHORT).show()
+            when(item){
+                is SearchRecyclerViewItem.Product -> searchList.add(item)
+                is SearchRecyclerViewItem.Store -> searchList.add(item)
+                is SearchRecyclerViewItem.Title -> Unit
+            }
+
+            searchProductListAdapter.notifyDataSetChanged()
         }
 
         binding.rvSearchProductList.apply {
@@ -109,18 +126,18 @@ class SearchProductFragment : Fragment() {
 
         binding.svRecyclerViewSearch.queryHint = getString(R.string.search_hint)
 
-//        binding.svRecyclerViewSearch.setOnQueryTextListener(object : OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                searchProductListAdapter.getFilter().filter(query)
-//                return true
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                searchProductListAdapter.getFilter().filter(newText)
-//                return true
-//            }
-//
-//        })
+        binding.svRecyclerViewSearch.setOnQueryTextListener(object : OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                searchProductListAdapter.getFilter().filter(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                searchProductListAdapter.getFilter().filter(newText)
+                return true
+            }
+
+        })
 
 
         binding.fabGoToMockHomePage.setOnClickListener {
