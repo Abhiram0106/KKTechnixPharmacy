@@ -1,102 +1,121 @@
 package com.example.kktechnixpharmacy
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kktechnixpharmacy.databinding.SearchProductListItemBinding
+import com.example.kktechnixpharmacy.databinding.SearchItemBinding
+import com.example.kktechnixpharmacy.databinding.SearchItemStoreBinding
+import com.example.kktechnixpharmacy.databinding.SearchRecyclerviewTitleBinding
 
-class RecyclerViewAdapterSearchProduct (
-    private var searchPageProductList: MutableList<SearchPageProductData>,
-    private var onProductClicked: ((position : Int) -> Unit)
-        ) : RecyclerView.Adapter<RecyclerViewAdapterSearchProduct.ViewHolderSearchProduct>() {
+class RecyclerViewAdapterSearchProduct : RecyclerView.Adapter<ViewHolderSearchPageRecycler>() {
 
+    var items = listOf<SearchRecyclerViewItem>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
-    val initialList = ArrayList<SearchPageProductData>().apply {
-        addAll(searchPageProductList)
-    }
+    var itemClickListener : ( (view: View, item: SearchRecyclerViewItem, position: Int) -> Unit )? = null
 
+//    val initialList = ArrayList<SearchRecyclerViewItem>().apply {
+//        addAll(items)
+//    }
 
-    inner class ViewHolderSearchProduct(private val binding: SearchProductListItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolderSearchPageRecycler {
+        return when(viewType) {
 
-        fun bind(product: SearchPageProductData) = binding.apply {
-            tvProductNameInSearchPage.text = product.productName
-            tvProductRatingInSearchPage.text = product.rating.toString()
-            when{
-                product.rating < 1.5 -> cvRating.setBackgroundColor(itemView.resources.getColor(R.color.rating_red,null))
-                product.rating < 3.0 -> cvRating.setBackgroundColor(itemView.resources.getColor(R.color.rating_yellow,null))
-                product.rating >= 3.0 -> cvRating.setBackgroundColor(itemView.resources.getColor(R.color.rating_green,null))
-                else -> cvRating.setBackgroundColor(itemView.resources.getColor(R.color.rating_red,null))
-            }
-            tvProductQuantityInSearchPage.text = product.productQuantity
-            tvProductIngredientInSearchPage.text = product.ingredient
-            tvProductPriceInSearchPage.text = itemView.context.getString(R.string.price, product.price)
-            tvDeliveryTimeInSearchPage.text = itemView.context.getString(
-                R.string.time_and_distance,
-                product.deliveryTime,
-                product.storeDistance
+            R.layout.search_recyclerview_title -> ViewHolderSearchPageRecycler.ViewHolderTitle(
+                SearchRecyclerviewTitleBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
             )
-            tvStoreNameInSearchPage.text = product.storeName
 
-            ivProductImageInSearchPage.setImageResource(R.drawable.picture_tablet)
+            R.layout.search_item -> ViewHolderSearchPageRecycler.ViewHolderProduct(
+                SearchItemBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
 
-            root.setOnClickListener {
-                onProductClicked(adapterPosition)
-            }
+            R.layout.search_item_store -> ViewHolderSearchPageRecycler.ViewHolderStore(
+                SearchItemStoreBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
+
+            else -> throw java.lang.IllegalArgumentException("Invalid ViewType at Search RV")
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderSearchProduct {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = SearchProductListItemBinding.inflate(layoutInflater, parent, false)
-        return ViewHolderSearchProduct(binding)
-    }
+    override fun onBindViewHolder(holder: ViewHolderSearchPageRecycler, position: Int) {
 
-    override fun onBindViewHolder(holder: ViewHolderSearchProduct, position: Int) {
-        holder.bind(searchPageProductList[position])
+        holder.itemClickListenerInViewHolder = itemClickListener
+
+        when(holder){
+            is ViewHolderSearchPageRecycler.ViewHolderTitle -> holder.bind(items[position] as SearchRecyclerViewItem.Title)
+            is ViewHolderSearchPageRecycler.ViewHolderStore -> holder.bind(items[position] as SearchRecyclerViewItem.Store)
+            is ViewHolderSearchPageRecycler.ViewHolderProduct -> holder.bind(items[position] as SearchRecyclerViewItem.Product)
+        }
     }
 
     override fun getItemCount(): Int {
-        return searchPageProductList.size
+        return items.size
     }
 
-    fun getFilter() : Filter {
-        return medsFilter
-    }
 
-    private val medsFilter = object : Filter() {
-        override fun performFiltering(constraint: CharSequence?): FilterResults {
-            val filteredList: ArrayList<SearchPageProductData> = ArrayList()
-            if (constraint.isNullOrEmpty()) {
-//                TODO if search is empty, display recent search items
-                initialList.let { filteredList.addAll(it) }
-            } else {
-                val query = constraint.toString()
-                initialList.forEach {
-                    if (it.productName.contains(query, ignoreCase = true) || it.storeName.contains(
-                            query,
-                            ignoreCase = true
-                        )
-                    ) {
-                        filteredList.add(it)
-                    }
-                }
-            }
-            val results = FilterResults()
-            results.values = filteredList
-            return results
-        }
-
-        override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-            if (results?.values is MutableList<*>) {
-                searchPageProductList.clear()
-                searchPageProductList.addAll(results.values as MutableList<SearchPageProductData>)
-                searchPageProductList.sortBy {
-                    it.price
-                }
-                notifyDataSetChanged()
-            }
+    override fun getItemViewType(position: Int): Int {
+        return when(items[position]){
+            is SearchRecyclerViewItem.Product -> R.layout.search_item
+            is SearchRecyclerViewItem.Store -> R.layout.search_item_store
+            is SearchRecyclerViewItem.Title -> R.layout.search_recyclerview_title
         }
     }
+
+
+//    fun getFilter() : Filter {
+//        return medsFilter
+//    }
+//
+//    private val medsFilter = object : Filter() {
+//        override fun performFiltering(constraint: CharSequence?): FilterResults {
+//            val filteredList: ArrayList<SearchPageProductData> = ArrayList()
+//            if (constraint.isNullOrEmpty()) {
+//                initialList.let { filteredList.addAll(it) }
+//            } else {
+//                val query = constraint.toString()
+//                initialList.forEach {
+//                    if (it.productName.contains(query, ignoreCase = true) || it.storeName   .contains(
+//                            query,
+//                            ignoreCase = true
+//                        )
+//                    ) {
+//                        filteredList.add(it)
+//                    }
+//                }
+//            }
+//            val results = FilterResults()
+//            results.values = filteredList
+//            return results
+//        }
+//
+//        override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+//            if (results?.values is MutableList<*>) {
+//                searchPageProductList.clear()
+//                searchPageProductList.addAll(results.values as MutableList<SearchPageProductData>)
+//                searchPageProductList.sortBy {
+//                    it.price
+//                }
+//                notifyDataSetChanged()
+//            }
+//        }
+//    }
 }

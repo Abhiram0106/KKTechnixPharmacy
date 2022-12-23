@@ -7,11 +7,11 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView.INVISIBLE
-import androidx.appcompat.widget.SearchView.OnQueryTextListener
+import androidx.appcompat.widget.SearchView.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kktechnixpharmacy.databinding.FragmentSearchProductBinding
 import com.google.android.material.card.MaterialCardView
@@ -22,6 +22,7 @@ class SearchProductFragment : Fragment() {
     private var isAntibioticChecked = false
     private var isAyurvedaChecked = false
     private var isHygieneChecked = false
+    private var searchProductListAdapter = RecyclerViewAdapterSearchProduct()
 
     var _binding: FragmentSearchProductBinding? = null
     val binding get() = _binding!!
@@ -38,42 +39,88 @@ class SearchProductFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val searchProductList = mutableListOf(
-            SearchPageProductData("mask","pack of 10", "cotton", 500, 50, 20, "ABC Pharmacy", 1.0),
-            SearchPageProductData("mask","pack of 9", "silk", 400, 40, 30, "XYZ Pharmacy", 2.0),
-            SearchPageProductData("mask","pack of 8", "jute", 300, 30, 40, "123 Pharmacy", 3.0),
-            SearchPageProductData("mask","pack of 7", "wool", 200, 20, 50, "789 Pharmacy", 4.0),
-            SearchPageProductData("med1","10 mg", "ing1", 100, 10, 10, "qwe Pharmacy", 5.0),
-            SearchPageProductData("med2","20 mg", "ing2", 200, 20, 20, "iop Pharmacy", 1.0),
-            SearchPageProductData("med3","30 mg", "ing3", 300, 30, 30, "asd Pharmacy", 2.0),
-            SearchPageProductData("med4","40 mg", "ing4", 400, 40, 40, "jkl Pharmacy", 3.0),
-            )
 
-        binding.rvSearchProductList.layoutManager = GridLayoutManager(view.context,1, RecyclerView.VERTICAL, false)
-        val searchProductListAdapter = RecyclerViewAdapterSearchProduct(
-            searchPageProductList =  searchProductList,
-            onProductClicked = { position ->
-                Snackbar.make(view, "Click pos=$position",Snackbar.LENGTH_SHORT).show()
+        val productList = mutableListOf<SearchRecyclerViewItem.Product>()
+        productList.apply {
+            add(SearchRecyclerViewItem.Product(R.drawable.picture_tablet, "product1", 100))
+            add(SearchRecyclerViewItem.Product(R.drawable.picture_tablet, "product2", 200))
+            add(SearchRecyclerViewItem.Product(R.drawable.picture_tablet, "product3", 300))
+            add(SearchRecyclerViewItem.Product(R.drawable.picture_tablet, "product4", 400))
+            add(SearchRecyclerViewItem.Product(R.drawable.picture_tablet, "product5", 500))
+        }
+
+        val storeList = mutableListOf<SearchRecyclerViewItem.Store>()
+        storeList.apply {
+            add(SearchRecyclerViewItem.Store(R.drawable.ic_baseline_home_24, "store1","store1desc"))
+            add(SearchRecyclerViewItem.Store(R.drawable.ic_baseline_home_24, "store2","store2desc"))
+            add(SearchRecyclerViewItem.Store(R.drawable.ic_baseline_home_24, "store3","store3desc"))
+            add(SearchRecyclerViewItem.Store(R.drawable.ic_baseline_home_24, "store4","store4desc"))
+            add(SearchRecyclerViewItem.Store(R.drawable.ic_baseline_home_24, "store5","store5desc"))
+        }
+
+        val recentList = mutableListOf<SearchRecyclerViewItem>()
+        recentList.apply {
+            add(productList[2])
+            add(storeList[2])
+        }
+
+        val fullList = mutableListOf<SearchRecyclerViewItem>()
+        fullList.apply {
+            addAll(productList)
+            addAll(storeList)
+        }
+
+        val searchList = mutableListOf<SearchRecyclerViewItem>()
+        searchList.apply {
+//            TODO reimplement search
+        }
+
+
+        val recyclerList = mutableListOf<SearchRecyclerViewItem>()
+        recyclerList.apply {
+            add(SearchRecyclerViewItem.Title(1, binding.rvSearchProductList.context.getString(R.string.past_searches)))
+            addAll(recentList)
+            add(SearchRecyclerViewItem.Title(2, binding.rvSearchProductList.context.getString(R.string.search_results)))
+            addAll(fullList)
+        }
+
+
+
+        searchProductListAdapter.items = recyclerList
+        searchProductListAdapter.itemClickListener = { view, item, position ->
+
+            val message = when(item) {
+                is SearchRecyclerViewItem.Product -> item.name
+                is SearchRecyclerViewItem.Store -> item.name
+                is SearchRecyclerViewItem.Title -> item.title
             }
-        )
 
-        binding.rvSearchProductList.adapter = searchProductListAdapter
+            Snackbar.make(view, "At $position, $message", Snackbar.LENGTH_SHORT).show()
+        }
+
+        binding.rvSearchProductList.apply {
+            layoutManager = LinearLayoutManager(view.context, RecyclerView.VERTICAL, false)
+            hasFixedSize()
+            adapter = searchProductListAdapter
+        }
+
+
 
 
         binding.svRecyclerViewSearch.queryHint = getString(R.string.search_hint)
 
-        binding.svRecyclerViewSearch.setOnQueryTextListener(object : OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                searchProductListAdapter.getFilter().filter(query)
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                searchProductListAdapter.getFilter().filter(newText)
-                return true
-            }
-
-        })
+//        binding.svRecyclerViewSearch.setOnQueryTextListener(object : OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                searchProductListAdapter.getFilter().filter(query)
+//                return true
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                searchProductListAdapter.getFilter().filter(newText)
+//                return true
+//            }
+//
+//        })
 
 
         binding.fabGoToMockHomePage.setOnClickListener {

@@ -36,4 +36,23 @@
     <string name="category_antibiotic">Antibiotic</string>
     <string name="category_ayurveda">Ayurveda</string>
     <string name="category_hygiene">Hygiene</string>
+    <string name="past_searches">Past Searches</string>
+    <string name="search_results">Search Results</string>
+
+
+    <string name="my_orders">MyOrders</string>
+    <string name="my_prescription">My Prescription</string>
+    <string name="cash_wallet">Cash Wallet</string>
+    <string name="my_addresses">My Addresses</string>
+    <string name="premium">Premium</string>
+    <string name="favourite_seller">Favourite Seller</string>
+    <string name="consultancy">Consultancy</string>
+    <string name="help_and_support">Help and Support</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="log_out">Log Out</string>
+
+
+    <string name="open_drawer">Open Navigation Drawer</string>
+    <string name="close_drawer">Close Navigation Drawer</string>
+
 </resources>

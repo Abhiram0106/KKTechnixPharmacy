@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Category 1">
+        <menu>
+        <item
+            android:id="@+id/menu_myOrders"
+            android:title="@string/my_orders"
+            android:icon="@drawable/ic_baseline_wallet_24"/>
+        <item
+            android:id="@+id/menu_myPrescriptions"
+            android:title="@string/my_prescription"
+            android:icon="@drawable/ic_baseline_wallet_24"/>
+        <item
+            android:id="@+id/menu_cashWallet"
+            android:title="@string/cash_wallet"
+            android:icon="@drawable/ic_baseline_wallet_24"/>
+        </menu>
+    </item>
+
+    <item android:title="Category 2">
+        <menu>
+    <item
+        android:id="@+id/menu_myAddresses"
+        android:title="@string/my_addresses"
+        android:icon="@drawable/ic_baseline_wallet_24"/>
+    <item
+        android:id="@+id/menu_premium"
+        android:title="@string/premium"
+        android:icon="@drawable/ic_baseline_wallet_24" />
+    <item
+        android:id="@+id/menu_favouriteSeller"
+        android:title="@string/favourite_seller"
+        android:icon="@drawable/ic_baseline_wallet_24"/>
+    <item
+        android:id="@+id/menu_consultancy"
+        android:title="@string/consultancy"
+        android:icon="@drawable/ic_baseline_wallet_24"/>
+        </menu>
+    </item>
+
+    <item android:title="Category 1">
+        <menu>
+    <item
+        android:id="@+id/menu_helpAndSupport"
+        android:title="@string/help_and_support"
+        android:icon="@drawable/ic_baseline_wallet_24"/>
+    <item
+        android:id="@+id/menu_termsAndConditions"
+        android:title="@string/terms_and_conditions"
+        android:icon="@drawable/ic_baseline_wallet_24"/>
+    <item
+        android:id="@+id/menu_logout"
+        android:title="@string/log_out"
+        android:icon="@drawable/ic_baseline_wallet_24"/>
+        </menu>
+    </item>
+
+</menu>
