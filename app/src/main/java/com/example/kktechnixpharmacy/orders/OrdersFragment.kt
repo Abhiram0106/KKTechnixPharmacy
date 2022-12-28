@@ -1,4 +1,4 @@
-package com.example.kktechnixpharmacy
+package com.example.kktechnixpharmacy.orders
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.kktechnixpharmacy.R
 import com.example.kktechnixpharmacy.databinding.FragmentOrdersBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener

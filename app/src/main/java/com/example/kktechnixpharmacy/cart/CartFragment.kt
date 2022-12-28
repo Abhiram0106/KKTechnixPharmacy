@@ -1,4 +1,4 @@
-package com.example.kktechnixpharmacy
+package com.example.kktechnixpharmacy.cart
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,8 +1,9 @@
-package com.example.kktechnixpharmacy
+package com.example.kktechnixpharmacy.orders
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kktechnixpharmacy.R
 import com.example.kktechnixpharmacy.databinding.OrdersListItemBinding
 
 class RecyclerViewAdapterOrders(var ordersList: List<OrderedProductData>) : RecyclerView.Adapter<RecyclerViewAdapterOrders.ViewHolderOrders>() {

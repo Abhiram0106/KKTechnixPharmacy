@@ -1,4 +1,4 @@
-package com.example.kktechnixpharmacy
+package com.example.kktechnixpharmacy.location
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.kktechnixpharmacy.R
 import com.example.kktechnixpharmacy.databinding.FragmentLocationSelectorBinding
 
 class LocationSelectorFragment : Fragment() {
@@ -37,9 +38,6 @@ class LocationSelectorFragment : Fragment() {
 
         binding.rvPinnedLoc.adapter = addressRecyclerAdapter
 
-        binding.ivDownArrow.setOnClickListener {
-            view.findNavController().popBackStack()
-        }
         binding.tvSelectALoc.setOnClickListener {
             view.findNavController().popBackStack()
         }

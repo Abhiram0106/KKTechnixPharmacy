@@ -10,17 +10,18 @@
         android:layout_height="wrap_content"
         android:text="Select Location"
         android:clickable="true"
-        app:layout_constraintEnd_toStartOf="@id/iv_mockImage"
+        app:layout_constraintEnd_toStartOf="@id/iv_userProfilePicture"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textSize="@dimen/large_text_size" />
 
     <ImageView
-        android:id="@+id/iv_mockImage"
+        android:id="@+id/iv_userProfilePicture"
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:clickable="true"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_baseline_masks_24"/>
+        android:src="@drawable/ic_baseline_person_24"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

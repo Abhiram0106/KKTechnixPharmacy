@@ -34,6 +34,7 @@
 
     </style>
 
+
     <style name="MySearchViewStyle" parent="Widget.AppCompat.SearchView.ActionBar">
         <item name="layout">@layout/abc_search_view</item>
         <item name="android:backgroundTint">@color/search_grey</item>
@@ -50,7 +51,12 @@
 
     <style name="customRoundedImageView" parent="">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">8dp</item>
+        <item name="cornerSize">20%</item>
+    </style>
+
+    <style name="customCircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 
 </resources>

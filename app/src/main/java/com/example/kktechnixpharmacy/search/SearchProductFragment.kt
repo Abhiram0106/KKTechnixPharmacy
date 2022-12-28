@@ -1,4 +1,4 @@
-package com.example.kktechnixpharmacy
+package com.example.kktechnixpharmacy.search
 
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kktechnixpharmacy.R
 import com.example.kktechnixpharmacy.databinding.FragmentSearchProductBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -47,17 +48,57 @@ class SearchProductFragment : Fragment() {
 
         val storeList = mutableListOf<SearchRecyclerViewItem.Store>()
         storeList.apply {
-            add(SearchRecyclerViewItem.Store(R.drawable.ic_baseline_home_24, "store1","store1desc"))
-            add(SearchRecyclerViewItem.Store(R.drawable.ic_baseline_home_24, "store2","store2desc"))
-            add(SearchRecyclerViewItem.Store(R.drawable.ic_baseline_home_24, "store3","store3desc"))
-            add(SearchRecyclerViewItem.Store(R.drawable.ic_baseline_home_24, "store4","store4desc"))
-            add(SearchRecyclerViewItem.Store(R.drawable.ic_baseline_home_24, "store5","store5desc"))
+            add(
+                SearchRecyclerViewItem.Store(
+                    R.drawable.ic_baseline_home_24,
+                    "store1",
+                    "store1desc"
+                )
+            )
+            add(
+                SearchRecyclerViewItem.Store(
+                    R.drawable.ic_baseline_home_24,
+                    "store2",
+                    "store2desc"
+                )
+            )
+            add(
+                SearchRecyclerViewItem.Store(
+                    R.drawable.ic_baseline_home_24,
+                    "store3",
+                    "store3desc"
+                )
+            )
+            add(
+                SearchRecyclerViewItem.Store(
+                    R.drawable.ic_baseline_home_24,
+                    "store4",
+                    "store4desc"
+                )
+            )
+            add(
+                SearchRecyclerViewItem.Store(
+                    R.drawable.ic_baseline_home_24,
+                    "store5",
+                    "store5desc"
+                )
+            )
         }
 
         val titleList = mutableListOf<SearchRecyclerViewItem.Title>()
         titleList.apply {
-            add(SearchRecyclerViewItem.Title(1, binding.rvSearchProductList.context.getString(R.string.past_searches)))
-            add(SearchRecyclerViewItem.Title(2, binding.rvSearchProductList.context.getString(R.string.search_results)))
+            add(
+                SearchRecyclerViewItem.Title(
+                    1,
+                    binding.rvSearchProductList.context.getString(R.string.past_searches)
+                )
+            )
+            add(
+                SearchRecyclerViewItem.Title(
+                    2,
+                    binding.rvSearchProductList.context.getString(R.string.search_results)
+                )
+            )
         }
 
         val recentList = mutableListOf<SearchRecyclerViewItem>()
@@ -97,7 +138,7 @@ class SearchProductFragment : Fragment() {
         searchProductListAdapter.recentSearchItems = searchList
         searchProductListAdapter.recentItemsUntouched = searchList
 
-        searchProductListAdapter.itemClickListener = { view, item, position ->
+        searchProductListAdapter.itemClickListener = { rv_view, item, position ->
 
             val message = when(item) {
                 is SearchRecyclerViewItem.Product -> item.name
@@ -105,7 +146,7 @@ class SearchProductFragment : Fragment() {
                 is SearchRecyclerViewItem.Title -> item.title
             }
 
-            Snackbar.make(view, "At $position, $message", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(rv_view, "At $position, $message", Snackbar.LENGTH_SHORT).show()
             when(item){
                 is SearchRecyclerViewItem.Product -> searchList.add(item)
                 is SearchRecyclerViewItem.Store -> searchList.add(item)

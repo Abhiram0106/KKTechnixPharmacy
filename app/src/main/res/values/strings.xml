@@ -55,4 +55,18 @@
     <string name="open_drawer">Open Navigation Drawer</string>
     <string name="close_drawer">Close Navigation Drawer</string>
 
+    <string name="btn_next">Next</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_sign_up">Sign Up</string>
+    <string name="btn_skip">Skip</string>
+
+    <string name="get_medicine">Get your medicine instantly</string>
+    <string name="get_medicine_desc">Order your medicine online from us and get it delivered instantly to your home.</string>
+
+    <string name="pill_reminder">Pill reminders</string>
+    <string name="pill_reminder_desc">Don’t be afraid about forgetting the right intake of your medicine. This app will remind you on time.</string>
+
+    <string name="upload_prescription">Upload your prescription</string>
+    <string name="upload_prescription_desc">Upload and confirm the medicine’s name, They’ll be automatically added to the cart.</string>
+
 </resources>

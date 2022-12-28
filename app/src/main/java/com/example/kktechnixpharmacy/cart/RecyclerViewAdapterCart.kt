@@ -1,8 +1,9 @@
-package com.example.kktechnixpharmacy
+package com.example.kktechnixpharmacy.cart
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kktechnixpharmacy.R
 import com.example.kktechnixpharmacy.databinding.CartListItemBinding
 
 class RecyclerViewAdapterCart(

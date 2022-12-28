@@ -1,14 +1,12 @@
-package com.example.kktechnixpharmacy
+package com.example.kktechnixpharmacy.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.kktechnixpharmacy.databinding.FragmentMockHomeBinding
-import com.google.android.material.snackbar.Snackbar
 
 class MockHomeFragment : Fragment() {
 
@@ -29,6 +27,11 @@ class MockHomeFragment : Fragment() {
 
         binding.tvOpenLocSelector.setOnClickListener {
             val directions = MockHomeFragmentDirections.actionMockHomeFragmentToLocationSelectorFragment()
+            view.findNavController().navigate(directions)
+        }
+
+        binding.ivUserProfilePicture.setOnClickListener {
+            val directions = MockHomeFragmentDirections.actionMockHomeFragmentToNavigationDrawerFragment()
             view.findNavController().navigate(directions)
         }
 

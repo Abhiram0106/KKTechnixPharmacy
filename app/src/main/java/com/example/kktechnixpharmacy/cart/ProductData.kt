@@ -1,4 +1,4 @@
-package com.example.kktechnixpharmacy
+package com.example.kktechnixpharmacy.cart
 
 data class ProductData(
     val name: String,

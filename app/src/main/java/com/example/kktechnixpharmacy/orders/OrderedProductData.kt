@@ -1,4 +1,4 @@
-package com.example.kktechnixpharmacy
+package com.example.kktechnixpharmacy.orders
 
 data class OrderedProductData(
     val status: String,

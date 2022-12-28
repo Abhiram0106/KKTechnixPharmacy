@@ -1,4 +1,4 @@
-package com.example.kktechnixpharmacy
+package com.example.kktechnixpharmacy.location
 
 data class PinnedAddressesData(
     val icon: Int,

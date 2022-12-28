@@ -1,4 +1,4 @@
-package com.example.kktechnixpharmacy
+package com.example.kktechnixpharmacy.search
 
 data class SearchPageProductData(
     val productName: String,

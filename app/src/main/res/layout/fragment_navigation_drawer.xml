@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/siv_closeNavDrawer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:src="@drawable/ic_baseline_close_large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_profilePicture"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        app:strokeWidth="1dp"
+        android:padding="2dp"
+        app:strokeColor="@color/kktechnix"
+        app:layout_constraintEnd_toStartOf="@id/tv_userName"
+        android:src="@drawable/ic_baseline_person_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/view_bottomLineUnderEmail"
+        app:layout_constraintTop_toBottomOf="@id/siv_closeNavDrawer"
+        app:shapeAppearance="@style/customCircleImageView" />
+
+    <TextView
+        android:id="@+id/tv_userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/large_text_size"
+        android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/siv_profilePicture"
+        app:layout_constraintTop_toTopOf="@id/siv_profilePicture"
+        tools:text="Insert Name Here" />
+
+    <TextView
+        android:id="@+id/tv_userPhoneNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/tv_userName"
+        app:layout_constraintTop_toBottomOf="@id/tv_userName"
+        tools:text="+91-123456789" />
+
+    <TextView
+        android:id="@+id/tv_userEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/siv_profilePicture"
+        app:layout_constraintStart_toStartOf="@id/tv_userPhoneNo"
+        app:layout_constraintTop_toBottomOf="@id/tv_userPhoneNo"
+        tools:text="insertemail@email.com" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:layout_constraintBottom_toBottomOf="@id/tv_userEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_userName" />
+
+    <View
+        android:id="@+id/view_bottomLineUnderEmail"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_userEmail" />
+
+    <TextView
+        android:id="@+id/tv_myOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="16dp"
+        android:padding="8dp"
+        android:text="@string/my_orders"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:drawableStartCompat="@drawable/ic_baseline_wallet_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_bottomLineUnderEmail" />
+
+    <TextView
+        android:id="@+id/tv_myPrescriptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="16dp"
+        android:padding="8dp"
+        android:text="@string/my_prescription"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:drawableStartCompat="@drawable/ic_baseline_wallet_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_myOrders" />
+
+    <TextView
+        android:id="@+id/tv_myCashWallet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="16dp"
+        android:padding="8dp"
+        android:text="@string/cash_wallet"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:drawableStartCompat="@drawable/ic_baseline_wallet_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_myPrescriptions" />
+
+    <View
+        android:id="@+id/view_bottomLineUnderCashWallet"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_myCashWallet" />
+
+
+    <TextView
+        android:id="@+id/tv_myAddresses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="16dp"
+        android:padding="8dp"
+        android:text="@string/my_addresses"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:drawableStartCompat="@drawable/ic_baseline_wallet_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_bottomLineUnderCashWallet" />
+
+    <TextView
+        android:id="@+id/tv_Premium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="16dp"
+        android:padding="8dp"
+        android:text="@string/premium"
+        android:textColor="@color/premium_gold"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:drawableStartCompat="@drawable/ic_baseline_wallet_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_myAddresses" />
+
+    <TextView
+        android:id="@+id/tv_favouriteSeller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="16dp"
+        android:padding="8dp"
+        android:text="@string/favourite_seller"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:drawableStartCompat="@drawable/ic_baseline_wallet_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_Premium" />
+
+    <TextView
+        android:id="@+id/tv_consultancy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="16dp"
+        android:padding="8dp"
+        android:text="@string/consultancy"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:drawableStartCompat="@drawable/ic_baseline_wallet_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_favouriteSeller" />
+
+    <View
+        android:id="@+id/view_bottomLineUnderConsultancy"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_consultancy" />
+
+    <TextView
+        android:id="@+id/tv_helpAndSupport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="16dp"
+        android:padding="8dp"
+        android:text="@string/help_and_support"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:drawableStartCompat="@drawable/ic_baseline_wallet_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_bottomLineUnderConsultancy" />
+
+    <TextView
+        android:id="@+id/tv_termsAndConditions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="16dp"
+        android:padding="8dp"
+        android:text="@string/terms_and_conditions"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:drawableStartCompat="@drawable/ic_baseline_wallet_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_helpAndSupport" />
+
+    <TextView
+        android:id="@+id/tv_logOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="16dp"
+        android:padding="8dp"
+        android:text="@string/log_out"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:drawableStartCompat="@drawable/ic_baseline_wallet_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_termsAndConditions" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

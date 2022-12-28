@@ -1,10 +1,11 @@
-package com.example.kktechnixpharmacy
+package com.example.kktechnixpharmacy.search
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kktechnixpharmacy.R
 import com.example.kktechnixpharmacy.databinding.SearchItemBinding
 import com.example.kktechnixpharmacy.databinding.SearchItemStoreBinding
 import com.example.kktechnixpharmacy.databinding.SearchRecyclerviewTitleBinding

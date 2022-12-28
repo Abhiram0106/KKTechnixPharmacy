@@ -1,4 +1,4 @@
-package com.example.kktechnixpharmacy
+package com.example.kktechnixpharmacy.location
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
